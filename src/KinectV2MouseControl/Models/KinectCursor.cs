@@ -58,11 +58,11 @@ namespace KinectV2MouseControl
         /// Rect value worked out by pointing to left, top, right, bottom spot with my hand as the ideal edges, and noting down the x, y values got from GetHandRelativePosition.
         /// This may only fit more for me, and you can test out your rect value. Approximately it works fine for most people.
         /// </summary>
-        private MRect gestureRect = new MRect(-0.18, 1.65, 0.18, -1.65);
+        private MRect gestureRect = new MRect(-0.18, 1.65, 0.18, -1.65);//-0.18, 1.65, 0.18, -1.65
 
         private bool[] handGrips = new bool[2] { false, false };
 
-        private double _hoverDuration = 2;
+        private double _hoverDuration = 2;//2
 
         /// <summary>
         /// Wait time for a hover gesture.
@@ -83,7 +83,7 @@ namespace KinectV2MouseControl
         /// Hand moves further than distance will cause a hover fail.
         /// Default as 20, this needs to be modified according to usual movement distance/speed in your specific case.
         /// </summary>
-        public double HoverRange { get; set; } = 20;
+        public double HoverRange { get; set; } = 20;//20
         
         public double MoveScale
         {
@@ -146,7 +146,8 @@ namespace KinectV2MouseControl
             for(int i = 1; i >= 0; i--) // Starts looking from right hand.
             {
                 bool isLeft = (i == 0);
-                if (body.IsHandLiftForward(isLeft))
+                bool isLeft2 = (i == 0);
+                if (body.IsHandLiftForward(isLeft, isLeft2))
                 {
                     if (usedHandIndex == -1)
                     {
@@ -162,11 +163,13 @@ namespace KinectV2MouseControl
                         continue;
                     }
 
-                    MVector2 handPos = body.GetHandRelativePosition(isLeft);
+                    MVector2 handPos = body.GetHandRelativePosition(isLeft, isLeft2);
                     MVector2 targetPos = cursorMapper.GetSmoothedOutputPosition(handPos);
                     //System.Diagnostics.Trace.WriteLine(handPos.ToString());
 
-                    MouseControl.MoveTo(targetPos.X, targetPos.Y);
+                    //MouseControl.MoveTo(targetPos.X, targetPos.Y);
+                    
+                    MouseControl.MoveTo(targetPos.X, 200);
 
                     if (Mode == ControlMode.GripToPress)
                     {
@@ -193,7 +196,7 @@ namespace KinectV2MouseControl
                     }
                     else  if (Mode == ControlMode.MoveLiftClicking)
                     {
-                        DoMouseClickByHandLifting(i, body.GetHandRelativePosition(isLeft));
+                        DoMouseClickByHandLifting(i, body.GetHandRelativePosition(isLeft, isLeft2));
                         //System.Diagnostics.Trace.WriteLine(body.GetHandRelativePosition(isLeft).Y);
                     }
                     else // Release mouse button when it's not regularly released, such as hand tracking lost.
