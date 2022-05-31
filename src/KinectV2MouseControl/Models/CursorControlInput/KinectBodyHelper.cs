@@ -43,12 +43,9 @@ namespace KinectV2MouseControl
             //Console.WriteLine("LeftPos X: " + footPosLeft.X.ToString() + " LeftPos Y: " + footPosLeft.Y.ToString() + " LeftPos Z: " + footPosLeft.Z.ToString());
             //Console.WriteLine("RightPos X: " + footPosRight.X.ToString() + " RightPos Y: " + footPosRight.Y.ToString() + " RightPos Z: " + footPosRight.Z.ToString());
 
-            int i = 0;
-            int j = 0;         
+            int i = 0;                     
 
-            if (i <= 19)
-            {
-                matrix_pos_Feet[i, 0] = footPosLeft.X;
+            matrix_pos_Feet[i, 0] = footPosLeft.X;
                 matrix_pos_Feet[i, 1] = footPosLeft.Y;
                 matrix_pos_Feet[i, 2] = footPosLeft.Z;
                 matrix_pos_Feet[i, 3] = footPosRight.X;
@@ -65,11 +62,11 @@ namespace KinectV2MouseControl
                 Console.WriteLine("PosRight Z: " + matrix_pos_Feet[i, 5]);
 
                 i++;
-            }
-            else
+            
+            if (i > 19)
             {
                 i = 0;
-            }            
+            }         
 
 
             return isLeft ? body.Joints[JointType.FootLeft].Position : body.Joints[JointType.FootRight].Position;
