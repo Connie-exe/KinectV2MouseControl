@@ -12,8 +12,9 @@ namespace KinectV2MouseControl
         const double GESTURE_X_OFFSET = 0.185f;
         const double GESTURE_Z_OFFSET = 0.185f;
 
-        public static double[,] matrix_pos_FootLeft;
-        public static double[,] matrix_pos_FootRight;
+        //public static float[,] matrix_pos_FootLeft = new float[20,3];
+        //public static float[,] matrix_pos_FootRight = new float[20, 3];
+        public static float[,] matrix_pos_Feet = new float[20, 6];
 
         static MVector2[] gestureOffsets = new MVector2[] {
            new MVector2(GESTURE_X_OFFSET, GESTURE_Y_OFFSET),
@@ -50,38 +51,33 @@ namespace KinectV2MouseControl
 
             int i = 0;
             int j = 0;
-            //int fila;
+            int fila;
             //double[,] matrix_pos_FootLeft;
-            if (i <= 20)
-            {
-                matrix_pos_FootLeft[i, 0] = footPosLeft.X;
-                matrix_pos_FootLeft[i, 1] = footPosLeft.Y;
-                matrix_pos_FootLeft[i, 2] = footPosLeft.Z;
-                i++;
 
-                Console.WriteLine(matrix_pos_FootLeft[i, 0]);
-                Console.WriteLine(matrix_pos_FootLeft[i, 1]);
-                Console.WriteLine(matrix_pos_FootLeft[i, 2]);
+            if (i <= 19)
+            {
+                matrix_pos_Feet[i, 0] = footPosLeft.X;
+                matrix_pos_Feet[i, 1] = footPosLeft.Y;
+                matrix_pos_Feet[i, 2] = footPosLeft.Z;
+                matrix_pos_Feet[i, 3] = footPosRight.X;
+                matrix_pos_Feet[i, 4] = footPosRight.Y;
+                matrix_pos_Feet[i, 5] = footPosRight.Z;
+
+
+
+                Console.WriteLine("PosLeft X: " + matrix_pos_Feet[i, 0]);
+                Console.WriteLine("PosLeft Y: " + matrix_pos_Feet[i, 1]);
+                Console.WriteLine("PosLeft Z: " + matrix_pos_Feet[i, 2]);
+                Console.WriteLine("PosRight X: " + matrix_pos_Feet[i, 3]);
+                Console.WriteLine("PosRight Y: " + matrix_pos_Feet[i, 4]);
+                Console.WriteLine("PosRight Z: " + matrix_pos_Feet[i, 5]);
+
+                i++;
             }
             else
             {
                 i = 0;
-            }
-            if(j < 20)
-            {
-                matrix_pos_FootRight[j, 0] = footPosRight.X;
-                matrix_pos_FootRight[j, 1] = footPosRight.Y;
-                matrix_pos_FootRight[j, 2] = footPosRight.Z;
-                j++;
-
-                Console.WriteLine(matrix_pos_FootRight[i, 0]);
-                Console.WriteLine(matrix_pos_FootRight[i, 1]);
-                Console.WriteLine(matrix_pos_FootRight[i, 2]);
-            }
-            else
-            {
-                j = 0;
-            }
+            }            
 
 
             return isLeft ? body.Joints[JointType.FootLeft].Position : body.Joints[JointType.FootRight].Position;
