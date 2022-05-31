@@ -97,7 +97,7 @@ namespace KinectV2MouseControl
             }
         }
 
-        public double HandLiftYForClick { get; set; } = 0.02f;
+        public double HandLiftYForClick { get; set; } = 0.02f;//0.02f
 
         private MVector2 lastCursorPos = MVector2.Zero;
 
@@ -163,13 +163,14 @@ namespace KinectV2MouseControl
                         continue;
                     }
 
-                    MVector2 handPos = body.GetHandRelativePosition(isLeft, isLeft2);
-                    MVector2 targetPos = cursorMapper.GetSmoothedOutputPosition(handPos);
+                    //MVector2 handPos = body.GetHandRelativePosition(isLeft, isLeft2)
+                    CameraSpacePoint feetPos = body.GetFeetRelativePosition(isLeft);                    
+                    MVector2 targetPos = cursorMapper.GetSmoothedOutputPosition(feetPos.ToMVector2());
                     //System.Diagnostics.Trace.WriteLine(handPos.ToString());
 
-                    //MouseControl.MoveTo(targetPos.X, targetPos.Y);
-                    
-                    MouseControl.MoveTo(targetPos.X, 200);
+                    MouseControl.MoveTo(targetPos.X, targetPos.Y);
+
+                    MouseControl.MoveTo(targetPos.X, 500); //siempre en la misma posición en y
 
                     if (Mode == ControlMode.GripToPress)
                     {
@@ -196,7 +197,7 @@ namespace KinectV2MouseControl
                     }
                     else  if (Mode == ControlMode.MoveLiftClicking)
                     {
-                        DoMouseClickByHandLifting(i, body.GetHandRelativePosition(isLeft, isLeft2));
+                        //DoMouseClickByHandLifting(i, body.GetHandRelativePosition(isLeft, isLeft2));
                         //System.Diagnostics.Trace.WriteLine(body.GetHandRelativePosition(isLeft).Y);
                     }
                     else // Release mouse button when it's not regularly released, such as hand tracking lost.

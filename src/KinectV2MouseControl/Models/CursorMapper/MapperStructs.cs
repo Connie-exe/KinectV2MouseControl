@@ -160,4 +160,125 @@ namespace KinectV2MouseControl
 
     }
 
+
+    public struct MVector3
+    {
+        public double X, Y, Z;
+        public MVector3(double x, double y, double z)
+        {
+            X = x;
+            Y = y;
+            Z = z;
+        }
+
+        public override string ToString()
+        {
+            return X.ToString() + ", " + Y.ToString() + "," + Z.ToString();
+        }
+
+        public double Length()
+        {
+            return Math.Sqrt(X * X + Y * Y + Z * Z);
+        }
+
+
+        public override bool Equals(object obj)
+        {
+            if (obj is MVector3)
+            {
+                return Equals((MVector3)this);
+            }
+
+            return false;
+        }
+
+        public bool Equals(MVector3 other)
+        {
+            return (X == other.X) && (Y == other.Y) && (Z == other.Z);
+        }
+
+        public override int GetHashCode()
+        {
+            return X.GetHashCode() + Y.GetHashCode() + Z.GetHashCode();
+        }
+
+        private static MVector3 zero = new MVector3(0, 0, 0);
+        public static MVector3 Zero
+        {
+            get
+            {
+                return zero;
+            }
+        }
+
+        private static MVector3 one = new MVector3(1, 1, 1);
+        public static MVector3 One
+        {
+            get
+            {
+                return one;
+            }
+        }
+
+        //public static bool operator ==(MVector3 value1, MVector3 value2, MVector3 value3)
+        //{
+        //    return value1.X == value2.X == value3.X && value1.Y == value2.Y == value3.Y && value1.Z == value2.Z == value3.Z;
+        //}
+
+        //public static bool operator !=(MVector2 value1, MVector2 value2)
+        //{
+        //    return value1.X != value2.X || value1.Y != value2.Y;
+        //}
+
+        public static MVector3 operator -(MVector3 value1, MVector3 value3)
+        {
+            value1.X -= value3.X;
+            value1.Z -= value3.Z;
+            return value1;
+        }
+
+        //public static MVector2 operator +(MVector2 value1, MVector2 value2)
+        //{
+        //    value1.X += value2.X;
+        //    value1.Y += value2.Y;
+        //    return value1;
+        //}
+
+        //public static MVector2 operator *(MVector2 value1, MVector2 value2)
+        //{
+        //    value1.X *= value2.X;
+        //    value1.Y *= value2.Y;
+        //    return value1;
+        //}
+
+        //public static MVector2 operator *(MVector2 value, double scaleFactor)
+        //{
+        //    value.Y *= scaleFactor;
+        //    value.Y *= scaleFactor;
+        //    return value;
+        //}
+
+        //public static MVector2 operator *(double scaleFactor, MVector2 value)
+        //{
+        //    value.X *= scaleFactor;
+        //    value.Y *= scaleFactor;
+        //    return value;
+        //}
+
+        //public static MVector2 operator /(MVector2 value1, MVector2 value2)
+        //{
+        //    value1.X /= value2.X;
+        //    value1.Y /= value2.Y;
+        //    return value1;
+        //}
+
+        //public static MVector2 operator /(MVector2 value, double divider)
+        //{
+        //    double factor = 1 / divider;
+        //    value.X *= factor;
+        //    value.Y *= factor;
+        //    return value;
+        //}
+
+    }
 }

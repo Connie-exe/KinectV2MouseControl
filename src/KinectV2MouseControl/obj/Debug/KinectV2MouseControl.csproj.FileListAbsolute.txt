@@ -3,7 +3,6 @@ C:\Users\PlaybotsKinetic\Documents\Connie Duarte Petti\GitHub\KinectV2MouseContr
 C:\Users\PlaybotsKinetic\Documents\Connie Duarte Petti\GitHub\KinectV2MouseControl\src\KinectV2MouseControl\bin\Debug\KinectV2MouseControl.pdb
 C:\Users\PlaybotsKinetic\Documents\Connie Duarte Petti\GitHub\KinectV2MouseControl\src\KinectV2MouseControl\bin\Debug\Microsoft.Kinect.dll
 C:\Users\PlaybotsKinetic\Documents\Connie Duarte Petti\GitHub\KinectV2MouseControl\src\KinectV2MouseControl\bin\Debug\Microsoft.Kinect.xml
-C:\Users\PlaybotsKinetic\Documents\Connie Duarte Petti\GitHub\KinectV2MouseControl\src\KinectV2MouseControl\obj\Debug\KinectV2MouseControl.csproj.AssemblyReference.cache
 C:\Users\PlaybotsKinetic\Documents\Connie Duarte Petti\GitHub\KinectV2MouseControl\src\KinectV2MouseControl\obj\Debug\Views\ParameterControl.baml
 C:\Users\PlaybotsKinetic\Documents\Connie Duarte Petti\GitHub\KinectV2MouseControl\src\KinectV2MouseControl\obj\Debug\Views\MainWindow.g.cs
 C:\Users\PlaybotsKinetic\Documents\Connie Duarte Petti\GitHub\KinectV2MouseControl\src\KinectV2MouseControl\obj\Debug\Views\ParameterControl.g.cs
@@ -19,3 +18,4 @@ C:\Users\PlaybotsKinetic\Documents\Connie Duarte Petti\GitHub\KinectV2MouseContr
 C:\Users\PlaybotsKinetic\Documents\Connie Duarte Petti\GitHub\KinectV2MouseControl\src\KinectV2MouseControl\obj\Debug\KinectV2MouseControl.csproj.CopyComplete
 C:\Users\PlaybotsKinetic\Documents\Connie Duarte Petti\GitHub\KinectV2MouseControl\src\KinectV2MouseControl\obj\Debug\KinectV2MouseControl.exe
 C:\Users\PlaybotsKinetic\Documents\Connie Duarte Petti\GitHub\KinectV2MouseControl\src\KinectV2MouseControl\obj\Debug\KinectV2MouseControl.pdb
+C:\Users\PlaybotsKinetic\Documents\Connie Duarte Petti\GitHub\KinectV2MouseControl\src\KinectV2MouseControl\obj\Debug\KinectV2MouseControl.csprojAssemblyReference.cache

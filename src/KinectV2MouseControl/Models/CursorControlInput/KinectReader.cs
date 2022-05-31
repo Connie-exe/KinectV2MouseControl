@@ -15,6 +15,8 @@ namespace KinectV2MouseControl
         const int NO_LOST_FRAME_TRACK = -1;
         const int MAX_LOST_TRACKING_FRAME_ALLOWED = 5;
 
+        //public CameraSpacePoint cameraKinect;
+
         /// <summary>
         /// Allowing some tracking lost frames before raising OnLostTracking events.
         /// So the tracking effected result won't get stuck for instant small frames loses, and will be seen more continuous.
