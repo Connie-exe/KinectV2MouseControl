@@ -28,13 +28,7 @@ namespace KinectV2MouseControl
         public static bool IsFootLiftForward(this Body body, bool isLeft, bool isLeft2)
         {            
             return body.Joints[isLeft ? JointType.FootLeft : JointType.FootRight].Position.Z - body.Joints[JointType.SpineBase].Position.Z < -FOOT_LIFT_Z_DISTANCE;            
-        }
-        
-        //public static void ConsoleWrite()
-        //{
-        //    Console.WriteLine()
-        //}
-        
+        }      
 
         public static HandState GetFeetState(this Body body, bool isLeft)
         {
@@ -50,9 +44,7 @@ namespace KinectV2MouseControl
             //Console.WriteLine("RightPos X: " + footPosRight.X.ToString() + " RightPos Y: " + footPosRight.Y.ToString() + " RightPos Z: " + footPosRight.Z.ToString());
 
             int i = 0;
-            int j = 0;
-            int fila;
-            //double[,] matrix_pos_FootLeft;
+            int j = 0;         
 
             if (i <= 19)
             {
@@ -81,7 +73,6 @@ namespace KinectV2MouseControl
 
 
             return isLeft ? body.Joints[JointType.FootLeft].Position : body.Joints[JointType.FootRight].Position;
-
             //CameraSpacePoint spineBase = body.Joints[JointType.SpineBase].Position;
 
         }
@@ -89,11 +80,6 @@ namespace KinectV2MouseControl
         public static MVector2 ToMVector2(this CameraSpacePoint jointPoint)
         {
             return new MVector2(jointPoint.X, jointPoint.Y);
-        } 
-        
-        //public static void MatrixFiller()
-        //{
-            
-        //}
+        }
     }
 }
